@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
-    <androidx.constraintlayout.utils.widget.ImageFilterView
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/blury_background"
@@ -16,71 +16,166 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <TextView
             android:id="@+id/tvAppName"
             style="@style/h3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="110dp"
             android:drawableStart="@drawable/ic_kleine_shape"
             android:drawablePadding="6dp"
             android:text="Veggie Basket"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toTopOf="@id/LoginHeading"
+            app:layout_constraintEnd_toEndOf="@id/guidelineLoginRight"
+            app:layout_constraintStart_toStartOf="@id/guidelineLoginLeft"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="117dp"
+            tools:layout_editor_absoluteY="120dp" />
 
 
         <TextView
-            android:id="@+id/tvRightAddressForShopping"
+            android:id="@+id/LoginHeading"
             style="@style/h4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="70"
+            android:layout_marginTop="15dp"
             android:gravity="center"
-            android:text="@string/rightAddress"
-            app:layout_constraintEnd_toEndOf="parent"
-
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAppName" />
+            android:text="Let\'s Register"
+            app:layout_constraintEnd_toEndOf="@id/guidelineLoginRight"
+            app:layout_constraintStart_toStartOf="@id/guidelineLoginLeft"
+            app:layout_constraintTop_toBottomOf="@+id/tvAppName"
+            tools:layout_editor_absoluteX="115dp"
+            tools:layout_editor_absoluteY="216dp" />
 
         <TextView
-            android:id="@+id/tvQuality"
+            android:id="@+id/tvAlreadyAnAccount"
             style="@style/h2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:gravity="center"
-            android:text="@string/introTV2"
-            android:textColor="@color/black"
-            app:layout_constraintEnd_toEndOf="@+id/tvRightAddressForShopping"
-            app:layout_constraintStart_toStartOf="@id/tvRightAddressForShopping"
-            app:layout_constraintTop_toBottomOf="@+id/tvRightAddressForShopping" />
+            android:text="Already have an account? Log In"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="@id/guidelineLoginRight"
+            app:layout_constraintStart_toStartOf="@id/guidelineLoginLeft"
+            app:layout_constraintTop_toBottomOf="@+id/LoginHeading"
+        />
+        <EditText
+            android:id="@+id/etRegisterFirstName"
+            style="@style/editText"
+            android:layout_width="429dp"
+            android:layout_height="@dimen/edittextHeight"
+            android:hint="First Name"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/tvAlreadyAnAccount"
+            app:layout_constraintStart_toStartOf="@id/guidelineLoginLeft"
+            app:layout_constraintEnd_toEndOf="@id/guidelineLoginRight"
+            android:inputType="text"
+             />
+        <EditText
+            android:id="@+id/etRegisterLastName"
+            style="@style/editText"
+            android:layout_width="429dp"
+            android:layout_height="@dimen/edittextHeight"
+            android:hint="Last Name"
+            android:inputType="text"
+            app:layout_constraintTop_toBottomOf="@id/etRegisterFirstName"
+            app:layout_constraintStart_toStartOf="@id/guidelineLoginLeft"
+            app:layout_constraintEnd_toEndOf="@id/guidelineLoginRight"
+            android:layout_marginTop="15dp"
+  />
 
+        <EditText
+            android:id="@+id/etRegisterEmail"
+            style="@style/editText"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/edittextHeight"
+            android:layout_marginTop="15dp"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="@+id/guidelineLoginRight"
+            app:layout_constraintStart_toStartOf="@id/guidelineLoginLeft"
+            app:layout_constraintTop_toBottomOf="@id/etRegisterLastName" />
+
+        <EditText
+            android:id="@+id/etRegisterPassword"
+            style="@style/editText"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/edittextHeight"
+            android:layout_marginTop="15dp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="@+id/guidelineLoginRight"
+            app:layout_constraintStart_toStartOf="@id/guidelineLoginLeft"
+            app:layout_constraintTop_toBottomOf="@id/etRegisterEmail" />
+
+
+
+
+        <ImageView
+            android:id="@+id/facebookIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/facebook_login"
+            app:layout_constraintStart_toStartOf="@id/guidelineLoginLeft"
+            app:layout_constraintTop_toBottomOf="@id/buttonLogin" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="facebook"
+            app:layout_constraintBottom_toBottomOf="@+id/facebookIcon"
+            app:layout_constraintEnd_toEndOf="@+id/facebookIcon"
+            app:layout_constraintStart_toStartOf="@+id/facebookIcon"
+            app:layout_constraintTop_toTopOf="@+id/facebookIcon" />
+
+        <ImageView
+            android:id="@+id/googleIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/google_login"
+            app:layout_constraintEnd_toEndOf="@id/guidelineLoginRight"
+            app:layout_constraintTop_toBottomOf="@id/buttonLogin" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="facebook"
+            app:layout_constraintBottom_toBottomOf="@+id/googleIcon"
+            app:layout_constraintEnd_toEndOf="@+id/googleIcon"
+            app:layout_constraintStart_toStartOf="@+id/googleIcon"
+            app:layout_constraintTop_toTopOf="@+id/googleIcon" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/buttonRegisterAccountOptions"
+            android:id="@+id/buttonLogin"
             style="@style/blueButtonStyle"
             android:layout_width="@dimen/mediumButtonWidth"
             android:layout_height="@dimen/mediumButtonHeight"
-            android:text="Register"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/tvQuality"
-            app:layout_constraintStart_toStartOf="@id/tvQuality"
-            app:layout_constraintTop_toBottomOf="@id/tvQuality"
-            app:layout_constraintVertical_bias="0.303" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/buttonLoginAccountOptions"
-            style="@style/whiteButtonStyle"
-            android:layout_width="@dimen/mediumButtonWidth"
-            android:layout_height="@dimen/mediumButtonHeight"
-            android:text="Login"
             android:layout_marginTop="15dp"
-            app:layout_constraintEnd_toEndOf="@+id/buttonRegisterAccountOptions"
-            app:layout_constraintStart_toStartOf="@+id/buttonRegisterAccountOptions"
-            app:layout_constraintTop_toBottomOf="@+id/buttonRegisterAccountOptions" />
+            android:text="Login"
+            app:layout_constraintEnd_toEndOf="@+id/guidelineLoginRight"
+            app:layout_constraintStart_toStartOf="@id/guidelineLoginLeft"
+            app:layout_constraintTop_toBottomOf="@+id/etRegisterPassword"
+            app:layout_goneMarginTop="20dp"
+
+            />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineLoginRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.91" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineLoginLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.09" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

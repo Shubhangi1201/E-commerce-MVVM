@@ -1,18 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.AuthActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/blury_background"
+        android:scaleType="centerCrop"
+        />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvAppName"
+            style="@style/h3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:drawableStart="@drawable/ic_kleine_shape"
+            android:drawablePadding="6dp"
+            android:text="Veggie Basket"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/LoginHeading"
+            style="@style/h4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:gravity="center"
+            android:text="@string/rightAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAppName" />
+
+        <TextView
+            android:id="@+id/tvQuality"
+            style="@style/h2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="@string/introTV2"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/LoginHeading"
+            app:layout_constraintStart_toStartOf="@id/LoginHeading"
+            app:layout_constraintTop_toBottomOf="@+id/LoginHeading" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonRegisterAccountOptions"
+            style="@style/blueButtonStyle"
+            android:layout_width="@dimen/mediumButtonWidth"
+            android:layout_height="@dimen/mediumButtonHeight"
+            android:text="Register"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/tvQuality"
+            app:layout_constraintStart_toStartOf="@id/tvQuality"
+            app:layout_constraintTop_toBottomOf="@id/tvQuality"
+            app:layout_constraintVertical_bias="0.303" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonLoginAccountOptions"
+            style="@style/whiteButtonStyle"
+            android:layout_width="@dimen/mediumButtonWidth"
+            android:layout_height="@dimen/mediumButtonHeight"
+            android:text="Login"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="@+id/buttonRegisterAccountOptions"
+            app:layout_constraintStart_toStartOf="@+id/buttonRegisterAccountOptions"
+            app:layout_constraintTop_toBottomOf="@+id/buttonRegisterAccountOptions" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
