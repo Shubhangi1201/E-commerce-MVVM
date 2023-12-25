@@ -62,7 +62,7 @@ dependencies {
     //circular image
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
-    //viewpager2 indicatior
+    //viewpager2 indicatiorx
     implementation 'io.github.vejei.viewpagerindicator:viewpagerindicator:1.0.0-alpha.1'
 
     //stepView
