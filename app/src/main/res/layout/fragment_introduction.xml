@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_texture_left"
+        app:layout_constraintBottom_toBottomOf="@id/guidelineTexture"
+        app:layout_constraintDimensionRatio="1:3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ellipse"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="@id/guidelineLeft"
+        app:layout_constraintEnd_toEndOf="@id/guidelineRight"
+        app:layout_constraintBottom_toBottomOf="@id/guidelineEllipsBottom"
+        app:layout_constraintTop_toTopOf="@id/guidelineEllipstop"
+        android:background="@drawable/ellips"/>
+
+    <TextView
+        android:id="@+id/tvRightAddressForShopping"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/h4"
+        android:text="@string/rightAddress"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/tvRightAddressMargin"
+        app:layout_constraintTop_toTopOf="@id/guidelineTexture"
+        app:layout_constraintStart_toStartOf="@id/ellipse"
+        app:layout_constraintEnd_toEndOf="@id/ellipse"
+        app:layout_constraintBottom_toBottomOf="@id/ellipse"
+        />
+
+    <TextView
+        android:id="@+id/tvQuality"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/h2"
+        android:gravity="center"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/tvRightAddressForShopping"
+        app:layout_constraintEnd_toEndOf="@+id/tvRightAddressForShopping"
+        app:layout_constraintTop_toBottomOf="@+id/tvRightAddressForShopping"
+        android:text="@string/introTV2"
+        android:layout_marginTop="15dp"
+    />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_texture_right"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guidelineTexture"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="@dimen/smallButtonWidth"
+        android:layout_height="@dimen/smallButtonHeight"
+        app:layout_constraintStart_toStartOf="@id/tvQuality"
+        app:layout_constraintEnd_toEndOf="@id/tvQuality"
+        app:layout_constraintTop_toBottomOf="@id/tvQuality"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Start"
+        style="@style/blueButtonStyle"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineTexture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.33" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEllipstop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.19" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEllipsBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.56" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

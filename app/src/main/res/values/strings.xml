@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">E-commerce App</string>
+    <string name="rightAddress">The Right Address \n For Shopping \n Anyday</string>
+    <string name="introTV2">It is not very easy to reach the \n best quality among all the \n products on the internet</string>
 </resources>
