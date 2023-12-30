@@ -1,4 +1,4 @@
-package com.example.e_commerceapp.util
+package com.example.e_commerceapp.authentication.domain.util
 
 sealed class Resource<T>(
     val data: T? = null,

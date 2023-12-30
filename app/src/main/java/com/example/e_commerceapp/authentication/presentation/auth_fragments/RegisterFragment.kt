@@ -1,22 +1,20 @@
-package com.example.e_commerceapp.fragment.auth_fragments
+package com.example.e_commerceapp.authentication.presentation.auth_fragments
 
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.coordinatorlayout.widget.CoordinatorLayout.DispatchChangeEvent
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.example.e_commerceapp.data.User
+import com.example.e_commerceapp.authentication.domain.model.User
 import com.example.e_commerceapp.databinding.FragmentRegisterBinding
-import com.example.e_commerceapp.util.RegisterValidatoins
-import com.example.e_commerceapp.util.Resource
-import com.example.e_commerceapp.viewmodel.RegisterViewModel
+import com.example.e_commerceapp.authentication.domain.util.RegisterValidatoins
+import com.example.e_commerceapp.authentication.domain.util.Resource
+import com.example.e_commerceapp.authentication.presentation.viewmodel.RegisterViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 

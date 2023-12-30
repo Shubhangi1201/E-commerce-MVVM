@@ -1,13 +1,13 @@
-package com.example.e_commerceapp.viewmodel
+package com.example.e_commerceapp.authentication.presentation.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
-import com.example.e_commerceapp.data.User
-import com.example.e_commerceapp.util.RegisterFieldState
-import com.example.e_commerceapp.util.RegisterValidatoins
-import com.example.e_commerceapp.util.Resource
-import com.example.e_commerceapp.util.validateEmail
-import com.example.e_commerceapp.util.validatePassword
+import com.example.e_commerceapp.authentication.domain.model.User
+import com.example.e_commerceapp.authentication.domain.util.RegisterFieldState
+import com.example.e_commerceapp.authentication.domain.util.RegisterValidatoins
+import com.example.e_commerceapp.authentication.domain.util.Resource
+import com.example.e_commerceapp.authentication.domain.util.validateEmail
+import com.example.e_commerceapp.authentication.domain.util.validatePassword
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import dagger.hilt.android.lifecycle.HiltViewModel

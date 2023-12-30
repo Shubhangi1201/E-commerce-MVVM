@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
 import com.example.e_commerceapp.R
-import com.example.e_commerceapp.fragment.auth_fragments.RegisterFragment
+import com.example.e_commerceapp.authentication.presentation.auth_fragments.RegisterFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

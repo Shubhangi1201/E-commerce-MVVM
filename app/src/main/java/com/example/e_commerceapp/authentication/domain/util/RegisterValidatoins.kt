@@ -1,4 +1,4 @@
-package com.example.e_commerceapp.util
+package com.example.e_commerceapp.authentication.domain.util
 
 sealed class RegisterValidatoins{
     object Success: RegisterValidatoins()
@@ -9,6 +9,6 @@ sealed class RegisterValidatoins{
 
 
 data class RegisterFieldState(
-    val email:  RegisterValidatoins,
+    val email: RegisterValidatoins,
     val password: RegisterValidatoins
 )

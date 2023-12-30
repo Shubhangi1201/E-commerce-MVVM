@@ -1,4 +1,4 @@
-package com.example.e_commerceapp.data
+package com.example.e_commerceapp.authentication.domain.model
 
 data class User(
     val firstName: String,
