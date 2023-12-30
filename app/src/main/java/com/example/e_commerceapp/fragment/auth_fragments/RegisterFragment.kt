@@ -5,15 +5,20 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.coordinatorlayout.widget.CoordinatorLayout.DispatchChangeEvent
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.e_commerceapp.data.User
 import com.example.e_commerceapp.databinding.FragmentRegisterBinding
+import com.example.e_commerceapp.util.RegisterValidatoins
 import com.example.e_commerceapp.util.Resource
 import com.example.e_commerceapp.viewmodel.RegisterViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 @AndroidEntryPoint
 class RegisterFragment: Fragment() {
@@ -62,6 +67,29 @@ class RegisterFragment: Fragment() {
                     }
                 }
             }
+        }
+
+        lifecycleScope.launch {
+            viewModel.validation.collect{ validation ->
+                if(validation.email is RegisterValidatoins.Failed){
+                    withContext(Dispatchers.Main){
+                        binding.etRegisterEmail.apply {
+                            requestFocus()
+                            error = validation.email.message
+                        }
+
+                    }
+            }
+                if(validation.password is RegisterValidatoins.Failed)
+                    withContext(Dispatchers.Main){
+                        binding.etRegisterPassword.apply {
+                            requestFocus()
+                            error = validation.password.message
+                        }
+                    }
+            }
+
+
         }
         return binding.root
     }
