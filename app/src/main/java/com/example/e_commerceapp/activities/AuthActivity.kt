@@ -13,8 +13,14 @@ class AuthActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auth)
-
+            loadFragment(RegisterFragment())
     }
 
 
+
+    private  fun loadFragment(fragment: Fragment){
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.AuthFrameLayout,fragment)
+        transaction.commit()
+    }
 }

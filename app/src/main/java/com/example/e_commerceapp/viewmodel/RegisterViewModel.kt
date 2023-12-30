@@ -1,5 +1,6 @@
 package com.example.e_commerceapp.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.example.e_commerceapp.data.User
 import com.example.e_commerceapp.util.RegisterFieldState
@@ -43,6 +44,7 @@ class RegisterViewModel @Inject constructor(
                     _register.value = Resource.Error(it.message.toString())
                 }
         }else{
+            Log.d("test", "else part executed")
             val registerFieldState= RegisterFieldState(
             validateEmail(user.email), validatePassword(password)
             )
@@ -58,7 +60,7 @@ class RegisterViewModel @Inject constructor(
         val emailValidatoins = validateEmail(user.email)
         val passwordValidation = validatePassword(password)
         val shouldRegister = emailValidatoins is RegisterValidatoins.Success &&
-                passwordValidation is RegisterValidatoins.Failed
+                passwordValidation is RegisterValidatoins.Success
 
         return shouldRegister
     }
