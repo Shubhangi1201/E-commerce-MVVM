@@ -137,7 +137,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/googleIcon"
             app:layout_constraintEnd_toEndOf="@+id/googleIcon"/>
 
-        <androidx.appcompat.widget.AppCompatButton
+        <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
             android:id="@+id/buttonLogin"
             style="@style/blueButtonStyle"
             android:layout_width="@dimen/mediumButtonWidth"
