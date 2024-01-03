@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import com.example.e_commerceapp.R
 import com.example.e_commerceapp.authentication.domain.model.User
 import com.example.e_commerceapp.databinding.FragmentRegisterBinding
 import com.example.e_commerceapp.authentication.domain.util.RegisterValidatoins
@@ -29,6 +31,10 @@ class RegisterFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentRegisterBinding.inflate(inflater)
+
+        binding.tvAlreadyAnAccount.setOnClickListener{
+            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+        }
 
         binding.apply {
             buttonRegister.setOnClickListener{

@@ -60,14 +60,15 @@
         />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/startBtn"
+        style="@style/blueButtonStyle"
         android:layout_width="@dimen/smallButtonWidth"
         android:layout_height="@dimen/smallButtonHeight"
-        app:layout_constraintStart_toStartOf="@id/tvQuality"
-        app:layout_constraintEnd_toEndOf="@id/tvQuality"
-        app:layout_constraintTop_toBottomOf="@id/tvQuality"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:text="Start"
-        style="@style/blueButtonStyle"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/tvQuality"
+        app:layout_constraintStart_toStartOf="@id/tvQuality"
+        app:layout_constraintTop_toBottomOf="@id/tvQuality" />
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineTexture"
         android:layout_width="wrap_content"

@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.example.e_commerceapp.R
 import com.example.e_commerceapp.authentication.domain.util.RegisterValidatoins
 import com.example.e_commerceapp.authentication.domain.util.Resource
@@ -31,6 +32,10 @@ class LoginFragment: Fragment(){
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentLoginBinding.inflate(inflater)
+
+        binding.tvDontHaveAnAccount.setOnClickListener{
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+        }
 
         binding.apply {
             buttonLogin.setOnClickListener{
@@ -64,28 +69,6 @@ class LoginFragment: Fragment(){
         }
 
 
-        lifecycleScope.launch {
-            viewModel.validation.collect{validation ->
-                if(validation.email is RegisterValidatoins.Failed){
-                    withContext(Dispatchers.Main){
-                        binding.etLoginEmail.apply {
-                            requestFocus()
-                            error = validation.email.message
-                        }
-                    }
-                }
-
-                if(validation.password is RegisterValidatoins.Failed){
-                    withContext(Dispatchers.Main){
-                        binding.etLoginPassword.apply {
-                            requestFocus()
-                            error = validation.password.message
-                        }
-                    }
-                }
-            }
-
-        }
         return binding.root
     }
 }
