@@ -11,19 +11,14 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.e_commerceapp.R
-import com.example.e_commerceapp.activities.ShoppingActivity
-import com.example.e_commerceapp.authentication.domain.util.RegisterValidatoins
+import com.example.e_commerceapp.shopping.ShoppingActivity
 import com.example.e_commerceapp.authentication.domain.util.Resource
 import com.example.e_commerceapp.authentication.presentation.dialog.setupBottomSheetDialog
 import com.example.e_commerceapp.authentication.presentation.viewmodel.LoginViewModel
-import com.example.e_commerceapp.authentication.presentation.viewmodel.RegisterViewModel
 import com.example.e_commerceapp.databinding.FragmentLoginBinding
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 @AndroidEntryPoint
 class LoginFragment: Fragment(){
@@ -91,7 +86,7 @@ class LoginFragment: Fragment(){
                     is Resource.success -> {
                         Toast.makeText(context, "Login successful", Toast.LENGTH_SHORT).show()
                         binding.buttonLogin.revertAnimation()
-                        Intent(requireActivity(), ShoppingActivity::class.java).also {intent->
+                        Intent(requireActivity(), ShoppingActivity::class.java).also { intent->
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                             startActivity(intent)
                         }
