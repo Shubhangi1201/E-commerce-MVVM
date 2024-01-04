@@ -11,10 +11,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.e_commerceapp.R
 import com.example.e_commerceapp.authentication.domain.model.User
-import com.example.e_commerceapp.databinding.FragmentRegisterBinding
 import com.example.e_commerceapp.authentication.domain.util.RegisterValidatoins
 import com.example.e_commerceapp.authentication.domain.util.Resource
 import com.example.e_commerceapp.authentication.presentation.viewmodel.RegisterViewModel
+import com.example.e_commerceapp.databinding.FragmentRegisterBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

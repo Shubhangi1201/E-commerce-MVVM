@@ -1,5 +1,6 @@
 package com.example.e_commerceapp.authentication.presentation.auth_fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,11 +11,14 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.e_commerceapp.R
+import com.example.e_commerceapp.activities.ShoppingActivity
 import com.example.e_commerceapp.authentication.domain.util.RegisterValidatoins
 import com.example.e_commerceapp.authentication.domain.util.Resource
+import com.example.e_commerceapp.authentication.presentation.dialog.setupBottomSheetDialog
 import com.example.e_commerceapp.authentication.presentation.viewmodel.LoginViewModel
 import com.example.e_commerceapp.authentication.presentation.viewmodel.RegisterViewModel
 import com.example.e_commerceapp.databinding.FragmentLoginBinding
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
@@ -46,6 +50,33 @@ class LoginFragment: Fragment(){
             }
         }
 
+        binding.tvForgetPassword.setOnClickListener{
+            setupBottomSheetDialog { email ->
+                viewModel.resetPassword(email)
+            }
+
+        }
+
+
+        lifecycleScope.launch {
+            viewModel.resetPassword.collect{resources ->
+                when(resources){
+                    is Resource.Error -> {
+                        Snackbar.make(requireView(), "Error : ${resources.message}", Snackbar.LENGTH_LONG).show()
+                    }
+                    is Resource.loading -> {
+                        Snackbar.make(requireView(), "i am loading", Snackbar.LENGTH_LONG).show()
+                    }
+                    is Resource.success -> {
+                        Snackbar.make(requireView(), "Password reset link has been sent to your email", Snackbar.LENGTH_LONG).show()
+                    }
+                    else ->{
+
+                    }
+                }
+            }
+        }
+
 
         lifecycleScope.launch {
             viewModel.loginFlow.collect{resources ->
@@ -60,6 +91,10 @@ class LoginFragment: Fragment(){
                     is Resource.success -> {
                         Toast.makeText(context, "Login successful", Toast.LENGTH_SHORT).show()
                         binding.buttonLogin.revertAnimation()
+                        Intent(requireActivity(), ShoppingActivity::class.java).also {intent->
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                            startActivity(intent)
+                        }
                     }
                     else ->{
 
